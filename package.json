@@ -1,6 +1,6 @@
 {
   "name": "tslint-newline-after-var",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "tslint-newline-after-var.json",
   "license": "MIT",
   "scripts": {
