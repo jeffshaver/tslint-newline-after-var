@@ -35,7 +35,8 @@ class NewlineAfterVarWalker extends Lint.AbstractWalker<any> {
     }
 
     const nextStart = next.getStart(sourceFile)
-    const line = ts.getLineAndCharacterOfPosition(sourceFile, nodeStart).line
+    const line = ts.getLineAndCharacterOfPosition(sourceFile, node.getEnd())
+      .line
     const nextLine = ts.getLineAndCharacterOfPosition(sourceFile, nextStart)
       .line
 

@@ -1,0 +1,17 @@
+const {
+  myvar1,
+  myvar2
+} = {myvar1: 1, myvar2: 2}
+const {
+~~~~~~~
+  myvar3,
+~~~~~~~~~
+  myvar4,
+~~~~~~~~~
+} = {myvar3: 1, myvar4: 2}
+~~~~~~~~~~~~~~~~~~~~~~~~~~ [newline]
+for (var i = 0; i < 10; i++) {
+  console.log('hello')
+}
+
+[newline]: You must put a newline after var, let or const declarations
