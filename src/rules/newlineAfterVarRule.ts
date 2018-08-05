@@ -38,18 +38,14 @@ class NewlineAfterVarWalker extends Lint.AbstractWalker<any> {
     const nextLine = ts.getLineAndCharacterOfPosition(sourceFile, next.getEnd())
       .line
 
-    console.log(`line: ${line} | nextLine: ${nextLine} | ${nextLine - line}`)
-
     if (nextLine - line > 1) {
       return
     }
 
-    console.log('start, end', node.getStart(), node.getEnd())
-
     this.addFailure(node.getStart(), node.getEnd(), Rule.NEWLINE_AFTER_VAR, [
       new Lint.Replacement(
         node.getStart(),
-        node.getEnd(),
+        node.getWidth(),
         `${node.getText()}\n`
       )
     ])
