@@ -27,27 +27,27 @@ class NewlineAfterVarWalker extends Lint.AbstractWalker<any> {
 
   public visitVariableStatement(node: ts.VariableStatement) {
     const { sourceFile } = this
+    const nodeStart = node.getStart(sourceFile)
     const next = getNextStatement(node)
 
     if (isVariableStatement(next)) {
       return
     }
 
-    const line = ts.getLineAndCharacterOfPosition(sourceFile, node.getEnd())
-      .line
-    const nextLine = ts.getLineAndCharacterOfPosition(sourceFile, next.getEnd())
+    const nextStart = next.getStart(sourceFile)
+    const line = ts.getLineAndCharacterOfPosition(sourceFile, nodeStart).line
+    const nextLine = ts.getLineAndCharacterOfPosition(sourceFile, nextStart)
       .line
 
     if (nextLine - line > 1) {
       return
     }
 
-    this.addFailure(node.getStart(), node.getEnd(), Rule.NEWLINE_AFTER_VAR, [
-      new Lint.Replacement(
-        node.getStart(),
-        node.getWidth(),
-        `${node.getText()}\n`
-      )
+    const nodeText = node.getText(sourceFile)
+    const nodeWidth = node.getEnd() - nodeStart
+
+    this.addFailure(nodeStart, node.getEnd(), Rule.NEWLINE_AFTER_VAR, [
+      new Lint.Replacement(nodeStart, nodeWidth, `${nodeText}\n`)
     ])
   }
 }
