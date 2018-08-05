@@ -1,0 +1,4 @@
+const myvar = 1
+const myvar = 2
+
+if (myvar) {}

@@ -1,0 +1,6 @@
+const myvar = 3
+const myvar2 = 4
+~~~~~~~~~~~~~~~~ [newline]
+if (myvar2) {}
+
+[newline]: You must put a newline after var, let or const declarations

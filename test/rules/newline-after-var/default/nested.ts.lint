@@ -1,0 +1,13 @@
+if (true) {
+  const myvar = 1
+
+  if (false) {}
+}
+
+if (true) {
+  const myvar2 = 2
+  ~~~~~~~~~~~~~~~~ [newline]
+  if (false) {}
+}
+
+[newline]: You must put a newline after var, let or const declarations

@@ -1,0 +1,23 @@
+{
+  "name": "tslint-newline-after-var",
+  "version": "0.0.1",
+  "main": "tslint-newline-after-var.json",
+  "license": "MIT",
+  "scripts": {
+    "compile": "tsc",
+    "prepublish": "yarn run compile",
+    "test": "./scripts/run-tests.sh"
+  },
+  "dependencies": {
+    "tsutils": "3.0.0"
+  },
+  "peerDependencies": {
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "10.5.5",
+    "tslint": "^5.11.0",
+    "typescript": "^3.0.1"
+  }
+}
