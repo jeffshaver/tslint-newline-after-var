@@ -30,7 +30,7 @@ class NewlineAfterVarWalker extends Lint.AbstractWalker<any> {
     const nodeStart = node.getStart(sourceFile)
     const next = getNextStatement(node)
 
-    if (isVariableStatement(next)) {
+    if (!next || isVariableStatement(next)) {
       return
     }
 
